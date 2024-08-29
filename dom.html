@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+                                            <!-- what is Dom  -->
+
+    <!-- The Document Object Model (DOM) is an API  that allows you to interact with and manipulate the structure, style, and content of an HTML document dynamically.
+    ==> its a blue print of a webpage 
+    ==> when browser recive the webpage from the server the doc is parse by the browser and build a DOM tree 
+    which is the hierarchical representation of the html file this tree includes the nodes ( each element , tag , and empty line is also being counted as a node in the tree) 
+    ==> in third step the DOM and CSSOM ( css object model ) both combine to form the render tree 
+    which then display colors on the screen 
+    Question : How is the dom an api ?? 
+    So the Document object present in window object contain certain funcitons which help developer access the html elements and manipulate them dynamically (during run time)  -->
+
+                                            <!-- selecting html elements -->
+     
+     <!-- => getElementById
+     => getElementByTagname
+     => getElementsByClassName
+     => getElementByName
+     => QuerySelector , QuerySelectorall   -->
+
+     <div class="container">
+        <h1 id="first_h1" class="first_h1_class">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, molestias.</h1>
+        <h1 id="firsth1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, voluptas.</h1>
+
+        <h2 name="sufyan">Lorem ipsum dolor sit amet.</h2>
+        <h2 name="sufyan">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+
+        <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur officiis itaque id labore?</p>
+        <p class="jabbar">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci illum recusandae veritatis? Ea autem quo deleniti inventore laboriosam corporis. Incidunt.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut, doloremque dicta quod est in officia optio quam perspiciatis. Ratione voluptatum doloribus ipsa ea facilis beatae labore corrupti asperiores non totam!</p>
+     </div>
+       
+        
+
+                                     <!-- lets dig into traversing element  --> 
+
+      <!-- selecting parent element 
+      selecting child element 
+      selecting sibling element -->
+              
+
+                                      <!-- Manipulating html elements  -->
+                                      
+       <!-- createElement 
+       Textcontent
+       appendChild
+       innerHTML
+       after
+       append
+       prepend
+       insertadjacetnelement 
+       removechild
+       replacechild 
+       clonechild 
+       insertbefore  -->
+
+    <script>
+
+        // const h1 = document.getElementById("first_h1")
+        // console.log(h1.innerHTML)
+
+        // const h1 = document.getElementsByClassName("first_h1_class")
+        // h1.innerhtml
+
+        // const h1 = document.querySelector('#first_h1')
+        // console.log(h2)
+
+        // const h2 = document.querySelectorAll('#first_h1')
+        // console.log(h2)
+
+        // const h = document.getElementsByTagName("h1")
+        // console.log(h) 
+         
+        // const h2 = document.getElementsByName("sufyan")
+        // h2.forEach( ()=>{
+        //     console.log(i.innerText)
+        // })
+
+        // const h2 = document.getElementsByName("sufyan")
+        // console.log(h2 instanceof NodeList)  ===> true
+        // console.log(h2 instanceof HTMLCollection)  ===> false
+         
+        // const h1 = document.getElementById("first_h1")
+        // h1.parentnode  
+
+        // lets access the child element now  
+
+        // const parent = document.querySelector("container")
+        // console.log(parent.firstElementChild)
+
+
+        // const get = document.getElementsByClassName('container')
+        // get[0].firstElementChild
+        
+         
+                        //   lets delve into sibling element 
+        
+        // const parent = document.getElementsByClassName("jabbar")
+        // parent[0].previoussiblingElement    
+
+
+
+                        //    so how to to create the element and append in the desired place in the document //
+        
+        // const newpara = document.createElement("p")
+        // newpara.innerText = "Hi Every one i am Muhammad Sufyan a passionate software developer"
+        // body.document.conatianer.appendChild(newpara)  ==> with this method the newpara will be added to the end of the current div but we want it to adjust it 
+
+        // const addjacentplace = document.querySelector(".jabbar")
+        // addjacentplace.insertAdjacentElement("afterbegin" , newpara)
+
+
+         
+
+                           //  the use of append prepend and after methods // 
+
+        // const append = document.querySelector(".jabbar")
+        // const newpara = document.createElement("p")
+        // newpara.innerText = "So ladies and gentlmen this one is the appended paragraph !"
+
+        // append.append(newpara)
+    
+
+
+        const append = document.querySelector(".jabbar")
+        
+        const clonenode = append.cloneNode(true)
+
+        const contain = document.querySelector(".container")
+
+        contain.appendChild(clonenode)
+
+
+
+        
+
+    </script>
+</body>
+</html>
